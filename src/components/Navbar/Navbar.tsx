@@ -3,12 +3,13 @@ import styled from 'styled-components';
 
 const NavbarContainer = styled.nav`
   padding: 10px;
-  background-color: #007bff;
+  background-color:rgb(255, 255, 255);
   color: #fff;
-  border-bottom: 1px solid #0056b3;
+  border-bottom: 1px solid #E6EFF5;
 `;
 
 const NavbarTitle = styled.h1`
+  height: 40px;
   font-size: 20px;
   margin: 0;
 `;
@@ -16,7 +17,7 @@ const NavbarTitle = styled.h1`
 const Navbar: React.FC = () => {
   return (
     <NavbarContainer>
-      <NavbarTitle>Financial Dashboard</NavbarTitle>
+      <NavbarTitle></NavbarTitle>
     </NavbarContainer>
   );
 };
