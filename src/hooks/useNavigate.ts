@@ -1,11 +1,11 @@
 import { useNavigate as useRouterNavigate } from 'react-router';
-import { routes } from '../routes/routes';
+import { RoutePaths } from '../routes/routes';
 
 const useNavigate = () => {
   const navigate = useRouterNavigate();
 
   const isValidRoute = (path: string): boolean => {
-    return routes.some((route) => route.path === path);
+    return Object.values(RoutePaths).includes(path as RoutePaths);
   };
 
   const goTo = (path: string, fallbackPath: string = '/') => {
