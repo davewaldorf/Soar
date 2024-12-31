@@ -147,8 +147,6 @@ const SidebarLink = styled(NavLink)`
   }
 `;
 
-
-
 export {
   SidebarContainer,
   SidebarHeader,

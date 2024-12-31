@@ -11,22 +11,11 @@ import {
   SidebarOverlay,
   HamburgerButton,
 } from "./Sidebar.styles";
-import { icons, IconKeys } from "./icons";
+import { icons } from "./icons";
+import { routes } from "../../../routes/routes";
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const menuItems: { name: string; path: string; icon: IconKeys }[] = [
-    { name: "Dashboard", path: "/", icon: "dashboardIcon" },
-    { name: "Transactions", path: "/transactions", icon: "transactionsIcon" },
-    { name: "Accounts", path: "/accounts", icon: "accountsIcon" },
-    { name: "Investments", path: "/investments", icon: "investmentsIcon" },
-    { name: "Credit Cards", path: "/credit-cards", icon: "creditCardsIcon" },
-    { name: "Loans", path: "/loans", icon: "loansIcon" },
-    { name: "Services", path: "/services", icon: "servicesIcon" },
-    { name: "My Privileges", path: "/privileges", icon: "privilegesIcon" },
-    { name: "Settings", path: "/settings", icon: "settingsIcon" },
-  ];
 
   return (
     <>
@@ -46,15 +35,15 @@ const Sidebar: React.FC = () => {
         </SidebarHeader>
 
         <SidebarList>
-          {menuItems.map((item) => (
-            <SidebarItem key={item.path}>
+          {routes.map((route) => (
+            <SidebarItem key={route.path}>
               <SidebarLink
-                to={item.path}
+                to={route.path}
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 <SidebarBorder />
-                <img src={icons[item.icon]} alt={`${item.name} Icon`} />
-                {item.name}
+                <img src={icons[route.icon]} alt={`${route.name} Icon`} />
+                {route.name}
               </SidebarLink>
             </SidebarItem>
           ))}
