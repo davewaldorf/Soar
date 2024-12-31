@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       {/* Top Row */}
       <TopRow>
         <EmptyNode></EmptyNode>
-        <Title>{currentRoute ? currentRoute.name : "Overview"}</Title>
+        <Title>{currentRoute ? currentRoute.name : ""}</Title>
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
           <IconButton onClick={() => goTo("/settings")}>
             <img src={icons.settingsIcon} alt="Settings" />
