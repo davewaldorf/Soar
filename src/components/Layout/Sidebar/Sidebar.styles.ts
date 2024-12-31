@@ -39,7 +39,8 @@ const SidebarOverlay = styled.div<{ isOpen: boolean }>`
 const HamburgerButton = styled.button<{ isOpen: boolean }>`
   position: absolute;
   background: none;
-  align-self: flex-start;
+  left: 15px;
+  top: 15px;
   margin: ${(props) => props.theme.spacing.small};
   border: none;
   cursor: pointer;

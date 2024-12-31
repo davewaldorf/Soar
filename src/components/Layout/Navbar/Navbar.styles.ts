@@ -2,22 +2,31 @@ import styled from 'styled-components';
 
 const NavbarContainer = styled.nav`
   display: flex;
+  flex-direction: column; 
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: ${({ theme }) => theme.spacing.medium} ${({ theme }) => theme.spacing.large};
   background-color: ${({ theme }) => theme.colors.background};
   border-bottom: 1px solid ${({ theme }) => theme.colors.grayLight};
-  height: 100px;
+  height: auto; 
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100px;
+  }
 `;
 
-const Container = styled.div`
+const TopRow = styled.div`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.large};
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: ${({ theme }) => theme.spacing.small};
+  
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    gap: ${({ theme }) => theme.spacing.small};
-    flex-wrap: wrap;
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-bottom: 0;
   }
 `;
 
@@ -27,7 +36,12 @@ const Title = styled.h1`
   line-height: ${({ theme }) => theme.typography.h1.lineHeight};
   font-weight: ${({ theme }) => theme.typography.h1.weight};
   color: ${({ theme }) => theme.colors.primaryDark};
-  margin-left: 10px;
+  margin: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: ${({ theme }) => theme.typography.h2.size};
+    text-align: center;
+  }
 `;
 
 const SearchBar = styled.div`
@@ -37,6 +51,10 @@ const SearchBar = styled.div`
   padding: ${({ theme }) => theme.spacing.small};
   border-radius: 40px;
   gap: ${({ theme }) => theme.spacing.small};
+  width: 100%;
+  max-width: 255px;
+  height: 50px;
+  margin-left: ${({ theme }) => theme.spacing.small};
 
   input {
     border: none;
@@ -45,41 +63,62 @@ const SearchBar = styled.div`
     font-family: ${({ theme }) => theme.fonts.inter};
     font-size: ${({ theme }) => theme.typography.b2.size};
     color: ${({ theme }) => theme.colors.black};
-    width: 255px;
-    height: 50px
+    width: 100%;
 
     ::placeholder {
       color: ${({ theme }) => theme.colors.grayMedium};
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+        max-width: 455px;
+        height: 40px;
     }
   }
 `;
 
 const IconButton = styled.button`
-  background-color: #F5F7FA; 
+  background-color: #F5F7FA;
   border: none;
-  cursor: pointer; 
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50px;
-  height: 50px; 
-  border-radius: 50%; 
+  height: 50px;
+  border-radius: 50%;
   padding: 0;
 
   img {
-    width: 25px; /* Icon size */
-    height: 25px; /* Icon size */
+    width: 25px;
+    height: 25px;
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.grayLight}; /* Optional hover effect */
+    background-color: ${({ theme }) => theme.colors.grayLight};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: none;
+  }
+`;
+
+const SearchIcon = styled.img`
+  width: 20px;
+  height: 20px;
+`;
+
+const EmptyNode = styled.div`
+   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: none;
   }
 `;
 
 export {
   NavbarContainer,
+  TopRow,
   Title,
-  Container,
   SearchBar,
   IconButton,
+  SearchIcon,
+  EmptyNode,
 };

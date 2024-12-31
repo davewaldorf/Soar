@@ -1,57 +1,59 @@
 import React, { useState } from "react";
-import { NavbarContainer, Container, SearchBar, IconButton, Title } from "./Navbar.styles";
-
+import {
+  NavbarContainer,
+  TopRow,
+  SearchBar,
+  IconButton,
+  Title,
+  SearchIcon,
+  EmptyNode,
+} from "./Navbar.styles";
 import { icons } from "./icons";
 import { routes } from "../../../routes/routes";
-import useNavigate from "../../../hooks/useNavigate"; 
-
+import useNavigate from "../../../hooks/useNavigate";
 import Avatar from "../../Avatar/Avatar";
 
 const Navbar: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const { goTo } = useNavigate(); 
+  const [searchQuery, setSearchQuery] = useState("");
+  const { goTo } = useNavigate();
 
-  const currentRoute = routes.find((route) => window.location.pathname === route.path);
+  const currentRoute = routes.find(
+    (route) => window.location.pathname === route.path
+  );
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-    console.log('Search Query:', e.target.value);
+    console.log("Search Query:", e.target.value);
   };
 
   return (
     <NavbarContainer>
-      {/* Left Section */}
-      <Container>
-        {currentRoute && <Title>{currentRoute.name}</Title>}
-      </Container>
-
-      {/* Right Section */}
-      <Container>
-        <SearchBar>
-          <IconButton>
-            <img src={icons.searchIcon} alt="Search" />
+      {/* Top Row */}
+      <TopRow>
+        <EmptyNode></EmptyNode>
+        <Title>{currentRoute ? currentRoute.name : "Overview"}</Title>
+        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          <IconButton onClick={() => goTo("/settings")}>
+            <img src={icons.settingsIcon} alt="Settings" />
           </IconButton>
-          <input
-            type="text"
-            placeholder="Search for something"
-            value={searchQuery}
-            onChange={handleSearchChange}
-          />
-        </SearchBar>
+          <IconButton onClick={() => goTo("/notifications")}>
+            <img src={icons.notificationIcon} alt="Notifications" />
+          </IconButton>
+          <Avatar src={icons.userAvatar} alt="User Avatar" size={40} />
+        </div>
+      </TopRow>
 
-        {/* Settings Icon */}
-        <IconButton onClick={() => goTo('/settings')}>
-          <img src={icons.settingsIcon} alt="Settings" />
-        </IconButton>
+      {/* Search Bar */}
 
-        {/* Notification Icon */}
-        <IconButton onClick={() => goTo('/notifications')}>
-          <img src={icons.notificationIcon} alt="Notifications" />
-        </IconButton>
-
-        {/* Avatar */}
-        <Avatar src={icons.userAvatar} alt="User Avatar" size={50} />
-      </Container>
+      <SearchBar>
+        <SearchIcon src={icons.searchIcon} alt="Search" />
+        <input
+          type="text"
+          placeholder="Search for something"
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
+      </SearchBar>
     </NavbarContainer>
   );
 };
