@@ -21,8 +21,6 @@ const TransactionCard: React.FC<{ transaction: Transaction }> = ({
         return { icon: icons.depositIcon, bgColor: "#FFF5D9" };
       case "Deposit PayPal":
         return { icon: icons.paypalIcon, bgColor: "#E7EDFF" };
-      case "Jemi Wilson":
-        return { icon: icons.dollarCircleIcon, bgColor: "#DCFAF8" };
       default:
         return { icon: icons.dollarCircleIcon, bgColor: "#DCFAF8" };
     }
