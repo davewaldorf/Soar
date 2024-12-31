@@ -14,6 +14,8 @@ import {
   HistorySection,
 } from "../features/dashboard/Dashboard.styles";
 
+import RecentTransactions from "../features/recentTransactions/RecentTransactions";
+
 import useNavigate from "../hooks/useNavigate";
 
 const Dashboard: React.FC = () => {
@@ -42,7 +44,9 @@ const Dashboard: React.FC = () => {
       </CardsSection>
 
       <RecentActivitySection>
-        <SectionCard title="Recent Activity">Recent Activity</SectionCard>
+        <SectionCard title="Recent Activity">
+       <RecentTransactions /> 
+          </SectionCard>
       </RecentActivitySection>
 
       <ActivitySection>
