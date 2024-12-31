@@ -12,7 +12,7 @@ import {
   StatsSection,
   TransferSection,
   HistorySection,
-} from "../features/dashboard/dashboard.styles";
+} from "../features/dashboard/Dashboard.styles";
 
 import useNavigate from "../hooks/useNavigate";
 

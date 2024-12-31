@@ -7,7 +7,6 @@ export const DashboardWrapper = styled.div`
     "activity stats stats"
     "transfer transfer history";
   gap: 20px;
-  padding: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     grid-template-areas:
