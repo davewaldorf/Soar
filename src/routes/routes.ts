@@ -16,6 +16,7 @@ export enum RoutePaths {
   Services = "/services",
   MyPrivileges = "/privileges",
   Settings = "/settings",
+  Cards = "/cards",
 }
 
 export const routes: Routes[] = [
@@ -29,4 +30,3 @@ export const routes: Routes[] = [
   { name: "My Privileges", path: RoutePaths.MyPrivileges, icon: "privilegesIcon" },
   { name: "Settings", path: RoutePaths.Settings, icon: "settingsIcon" },
 ];
-
