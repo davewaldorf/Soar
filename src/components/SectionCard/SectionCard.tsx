@@ -40,7 +40,6 @@ const SeeAllButton = styled.button`
 `;
 
 const CardWrapper = styled.div<{ noBackground: boolean }>`
-  padding: 20px;
   background: ${({ theme, noBackground }) =>
     noBackground ? "none" : theme.colors.background};
   border-radius: 15px;
