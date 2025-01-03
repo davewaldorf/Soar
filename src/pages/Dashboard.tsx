@@ -17,6 +17,7 @@ import {
 import RecentTransactions from "../features/recentTransactions/RecentTransactions";
 
 import useNavigate from "../hooks/useNavigate";
+import WeeklyActivity from "../features/weeklyActivity/WeeklyActivity";
 
 const Dashboard: React.FC = () => {
   const [cards, setCards] = useState<CardType[]>([]);
@@ -45,12 +46,14 @@ const Dashboard: React.FC = () => {
 
       <RecentActivitySection>
         <SectionCard title="Recent Activity">
-       <RecentTransactions /> 
-          </SectionCard>
+          <RecentTransactions />
+        </SectionCard>
       </RecentActivitySection>
 
       <ActivitySection>
-        <SectionCard title="Activity">Activity</SectionCard>
+        <SectionCard title="Weekly Activity">
+          <WeeklyActivity />
+        </SectionCard>
       </ActivitySection>
 
       <StatsSection>
