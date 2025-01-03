@@ -16,8 +16,8 @@ import { WeeklyActivityData } from "../api/fakeApi";
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const ChartContainer = styled.div`
-  width: 100%;
-  height: 322px;
+  max-width: 730px;
+  max-height: 322px;
   border-radius: ${({ theme }) => theme.borderRadius.extraLarge};
 `;
 
