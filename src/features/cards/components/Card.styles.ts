@@ -15,9 +15,6 @@ const CardWrapper = styled.div<{ isSelected: boolean; variant: "dashboard" | "al
   
   width: ${({ variant }) => (variant === "dashboard" ? "100%" : "400px")};
   min-height: ${({ variant }) => (variant === "dashboard" ? "240px" : "auto")};
-  padding: ${({ theme, variant }) =>
-    variant === "dashboard" ? theme.spacing.medium : theme.spacing.small};
-  margin: ${({ variant }) => (variant === "allCards" ? "0" : "0")};
 `;
 
 const CardHeader = styled.div`
