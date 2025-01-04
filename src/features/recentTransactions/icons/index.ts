@@ -1,5 +1,5 @@
-import depositIcon from './depositICON.svg';
-import paypalIcon from './paypalICON.svg';
+import depositIcon from './depositIcon.svg';
+import paypalIcon from './paypalIcon.svg';
 import dollarCircleIcon from './dollarCircleIcon.svg';
 
 export const icons = {
