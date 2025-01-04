@@ -9,9 +9,7 @@ interface SectionCardProps {
   noBackground?: boolean;
 }
 
-const SectionWrapper = styled.div`
-  margin-bottom: 40px; /* Spacing between sections */
-`;
+const SectionWrapper = styled.div``;
 
 const Header = styled.div`
   display: flex;
@@ -43,8 +41,6 @@ const CardWrapper = styled.div<{ noBackground: boolean }>`
   background: ${({ theme, noBackground }) =>
     noBackground ? "none" : theme.colors.background};
   border-radius: 15px;
-  box-shadow: ${({ noBackground }) =>
-    noBackground ? "none" : "0 4px 10px rgba(0, 0, 0, 0.05)"};
 `;
 
 const SectionCard: React.FC<SectionCardProps> = ({
