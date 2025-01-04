@@ -3,15 +3,14 @@ import styled from "styled-components";
 const Card = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Ensure price stays on the right */
-  padding: ${({ theme }) => theme.spacing.xs};
+  justify-content: space-between; 
   border-radius: ${({ theme }) => theme.borderRadius.large};
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align icon and description to the left */
+  justify-content: flex-start;
   gap: ${({ theme }) => theme.spacing.medium};
 `;
 

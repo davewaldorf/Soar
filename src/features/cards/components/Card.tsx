@@ -23,11 +23,12 @@ export interface CardProps {
   card: CardType;
   isSelected: boolean;
   onClick: () => void;
+  variant?: "dashboard" | "allCards";
 }
 
-const Card: React.FC<CardProps> = ({ card, isSelected, onClick }) => {
+const Card: React.FC<CardProps> = ({ card, isSelected, onClick, variant = "dashboard" }) => {
   return (
-    <CardWrapper isSelected={isSelected} onClick={onClick}>
+    <CardWrapper isSelected={isSelected} onClick={onClick} variant={variant}>
       <CardHeader>
         <BalanceContainer>
           <BalanceLabel>Balance</BalanceLabel>

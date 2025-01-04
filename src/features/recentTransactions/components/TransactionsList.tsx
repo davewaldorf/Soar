@@ -7,7 +7,7 @@ const List = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.medium};
-  padding: ${({ theme }) => theme.spacing.medium};
+  padding: ${({ theme }) => theme.spacing.large};
 `;
 
 const TransactionsList: React.FC<{ transactions: Transaction[] }> = ({

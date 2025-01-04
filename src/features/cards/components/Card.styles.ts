@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CardWrapper = styled.div<{ isSelected: boolean }>`
+const CardWrapper = styled.div<{ isSelected: boolean; variant: "dashboard" | "allCards" }>`
   font-family: ${({ theme }) => theme.fonts.lato};
   background: ${({ isSelected, theme }) =>
     isSelected
@@ -8,13 +8,13 @@ const CardWrapper = styled.div<{ isSelected: boolean }>`
       : theme.colors.white};
   color: ${({ isSelected, theme }) =>
     isSelected ? theme.colors.white : theme.colors.black};
-  width: 350px;
-  height: 235px;
   border-radius: ${({ theme }) => theme.borderRadius.extraLarge};
-  box-shadow: ${({ theme }) => theme.shadows.medium};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
+  width: ${({ variant }) => (variant === "dashboard" ? "100%" : "400px")};
+  min-height: ${({ variant }) => (variant === "dashboard" ? "240px" : "auto")};
 `;
 
 const CardHeader = styled.div`
@@ -50,8 +50,9 @@ const CardBalance = styled.h4`
 const CardMiddle = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 0 ${({ theme }) => theme.spacing.large};
-  gap: ${({ theme }) => theme.spacing.xs};
+  padding: ${({ theme }) => theme.spacing.large};
+  gap: ${({ theme }) => theme.spacing.small};
+  flex-grow: 1;
 `;
 
 const CardDetailCol = styled.div`
@@ -83,6 +84,7 @@ const CardFooter = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: ${({ theme }) => theme.spacing.large};
+  flex-shrink: 0; 
 `;
 
 const CardNumber = styled.p`

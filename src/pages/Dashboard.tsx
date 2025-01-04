@@ -18,6 +18,7 @@ import RecentTransactions from "../features/recentTransactions/RecentTransaction
 
 import useNavigate from "../hooks/useNavigate";
 import WeeklyActivity from "../features/weeklyActivity/WeeklyActivity";
+import ExpenseStatistics from "../features/expenseStats/ExpenseStatistics";
 
 const Dashboard: React.FC = () => {
   const [cards, setCards] = useState<CardType[]>([]);
@@ -57,7 +58,9 @@ const Dashboard: React.FC = () => {
       </ActivitySection>
 
       <StatsSection>
-        <SectionCard title="Stats">Stats</SectionCard>
+        <SectionCard title="Stats">
+          <ExpenseStatistics />
+        </SectionCard>
       </StatsSection>
 
       <TransferSection>

@@ -4,11 +4,12 @@ export const DashboardWrapper = styled.div`
   display: grid;
   grid-template-areas:
     "cards cards recent"
-    "activity stats stats"
+    "activity activity stats"
     "transfer transfer history";
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 20px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-areas:
       "cards"
       "recent"
@@ -16,6 +17,8 @@ export const DashboardWrapper = styled.div`
       "stats"
       "transfer"
       "history";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
   }
 `;
 
@@ -27,12 +30,12 @@ export const RecentActivitySection = styled.div`
   grid-area: recent;
 `;
 
-export const ActivitySection = styled.div`
-  grid-area: activity;
-`;
-
 export const StatsSection = styled.div`
   grid-area: stats;
+`;
+
+export const ActivitySection = styled.div`
+  grid-area: activity;
 `;
 
 export const TransferSection = styled.div`
@@ -42,4 +45,3 @@ export const TransferSection = styled.div`
 export const HistorySection = styled.div`
   grid-area: history;
 `;
-
