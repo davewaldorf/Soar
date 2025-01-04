@@ -9,7 +9,6 @@ const CardsGrid = styled.div<{ showAll: boolean }>`
   gap: 30px;
   overflow-x: ${({ showAll }) => (showAll ? "visible" : "auto")};
   overflow-y: hidden;
-  padding-bottom: 10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-wrap: wrap;
@@ -37,10 +36,12 @@ const CardsList: React.FC<CardsListProps> = ({ showAll, cards }) => {
           card={card}
           isSelected={card.id === selectedCard}
           onClick={() => handleCardClick(card.id)}
+          variant={showAll ? "allCards" : "dashboard"} 
         />
       ))}
     </CardsGrid>
   );
 };
+
 
 export default CardsList;
