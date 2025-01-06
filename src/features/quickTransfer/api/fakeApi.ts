@@ -1,4 +1,4 @@
-import data from './contacts.json';
+import { contacts } from "./contacts";
 
 export interface Contact {
   id: number;
@@ -10,7 +10,7 @@ export interface Contact {
 export function fetchRecentTransactions(): Promise<Contact[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(data); 
+      resolve(contacts); 
     }, 1000);
   });
 }
