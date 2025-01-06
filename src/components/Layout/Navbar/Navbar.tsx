@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
           <IconButton onClick={() => goTo("/notifications")}>
             <img src={icons.notificationIcon} alt="Notifications" />
           </IconButton>
-          <Avatar src={icons.userAvatar} alt="User Avatar" size={40} />
+          <Avatar src={icons.userAvatar} alt="User Avatar" size={60} />
         </div>
       </TopRow>
 
