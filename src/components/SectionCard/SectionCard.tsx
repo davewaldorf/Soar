@@ -24,13 +24,14 @@ const Title = styled.h2`
   color: ${({ theme }) => theme.colors.primaryDark};
 `;
 
-const SeeAllButton = styled.button`
+const SeeAllButton = styled.a`
   background: none;
   border: none;
   font-size: 14px;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primaryDark};
   cursor: pointer;
+
 
   &:hover {
     text-decoration: underline;

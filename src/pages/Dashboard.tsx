@@ -19,6 +19,8 @@ import RecentTransactions from "../features/recentTransactions/RecentTransaction
 import useNavigate from "../hooks/useNavigate";
 import WeeklyActivity from "../features/weeklyActivity/WeeklyActivity";
 import ExpenseStatistics from "../features/expenseStats/ExpenseStatistics";
+import QuickTransfer from "../features/quickTransfer/QuickTransfer";
+import BalanceHistory from "../features/balanceHistory/BalanceHistory";
 
 const Dashboard: React.FC = () => {
   const [cards, setCards] = useState<CardType[]>([]);
@@ -58,17 +60,21 @@ const Dashboard: React.FC = () => {
       </ActivitySection>
 
       <StatsSection>
-        <SectionCard title="Stats">
+        <SectionCard title="Expense Statistics">
           <ExpenseStatistics />
         </SectionCard>
       </StatsSection>
 
       <TransferSection>
-        <SectionCard title="Transfer">Transfer</SectionCard>
+        <SectionCard title="Quick Transfer">
+          <QuickTransfer />
+        </SectionCard>
       </TransferSection>
 
       <HistorySection>
-        <SectionCard title="History">History</SectionCard>
+        <SectionCard title="Balance History">
+          <BalanceHistory />
+        </SectionCard>
       </HistorySection>
     </DashboardWrapper>
   );

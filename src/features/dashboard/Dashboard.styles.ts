@@ -5,8 +5,8 @@ export const DashboardWrapper = styled.div`
   grid-template-areas:
     "cards cards recent"
     "activity activity stats"
-    "transfer transfer history";
-  grid-template-columns: 2fr 1fr 1fr;
+    "transfer history history";
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
