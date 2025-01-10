@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "../../store/store";
+import { fetchCardsThunk } from "../../store/slices/cardsSlice";
 import Card from "./components/Card";
-import { CardType } from "./api/fakeApi";
 
 const CardsGrid = styled.div<{ showAll: boolean }>`
   display: flex;
@@ -17,17 +19,21 @@ const CardsGrid = styled.div<{ showAll: boolean }>`
 
 interface CardsListProps {
   showAll: boolean;
-  cards: CardType[];
-  onSeeAllClick?: () => void;
 }
 
-const CardsList: React.FC<CardsListProps> = ({ showAll, cards }) => {
+const CardsList: React.FC<CardsListProps> = ({ showAll }) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { cards } = useSelector((state: RootState) => state.cards);
   const [selectedCard, setSelectedCard] = useState<number | null>(1);
+
+  useEffect(() => {
+    dispatch(fetchCardsThunk());
+  }, [dispatch]);
 
   const handleCardClick = (id: number) => {
     setSelectedCard(id);
   };
-
+  
   return (
     <CardsGrid showAll={showAll}>
       {cards.slice(0, showAll ? cards.length : 2).map((card) => (
@@ -36,12 +42,11 @@ const CardsList: React.FC<CardsListProps> = ({ showAll, cards }) => {
           card={card}
           isSelected={card.id === selectedCard}
           onClick={() => handleCardClick(card.id)}
-          variant={showAll ? "allCards" : "dashboard"} 
+          variant={showAll ? "allCards" : "dashboard"}
         />
       ))}
     </CardsGrid>
   );
 };
-
 
 export default CardsList;
