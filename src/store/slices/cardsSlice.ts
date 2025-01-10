@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { CardType, fetchCards } from '../../features/cards/api/fakeApi';
+import { toast } from 'react-toastify';
 
 interface CardsState {
   cards: CardType[];
@@ -13,9 +14,13 @@ const initialState: CardsState = {
 
 export const fetchCardsThunk = createAsyncThunk<CardType[]>(
   'cards/fetchCards',
-  async () => {
-    const response = await fetchCards();
-    return response;
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await fetchCards();
+      return response;
+    } catch {
+      return rejectWithValue(toast.error('Failed to fetch cards'));
+    }
   }
 );
 
