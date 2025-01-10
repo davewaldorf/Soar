@@ -6,6 +6,7 @@ import Dashboard from '../pages/Dashboard';
 import Settings from '../pages/Settings';
 import AllCardsPage from '../pages/AllCards';
 import { RoutePaths } from './routes';
+import { ToastContainer } from 'react-toastify';
 
 const AppRouter: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const AppRouter: React.FC = () => {
             <Route path={`${RoutePaths.Cards}`} element={<AllCardsPage />} />
           </Routes>
         </Layout>
+        <ToastContainer position="top-right" autoClose={3000} />
       </Router>
   );
 }

@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import SectionCard from "../components/SectionCard/SectionCard";
 import CardsList from "../features/cards/CardsList";
-import { CardType } from "../features/cards/api/fakeApi";
-import { fetchCards } from "../features/cards/api/fakeApi";
 import {
   DashboardWrapper,
   CardsSection,
@@ -16,21 +14,16 @@ import {
 
 import RecentTransactions from "../features/recentTransactions/RecentTransactions";
 
-import useNavigate from "../hooks/useNavigate";
 import WeeklyActivity from "../features/weeklyActivity/WeeklyActivity";
 import ExpenseStatistics from "../features/expenseStats/ExpenseStatistics";
 import QuickTransfer from "../features/quickTransfer/QuickTransfer";
 import BalanceHistory from "../features/balanceHistory/BalanceHistory";
+import useNavigate from "../hooks/useNavigate";
 
 const Dashboard: React.FC = () => {
-  const [cards, setCards] = useState<CardType[]>([]);
   const { goTo } = useNavigate();
 
-  useEffect(() => {
-    fetchCards().then(setCards);
-  }, []);
-
-  const handleSeeAllCards = () => {
+  const handleSeeAllClick = () => {
     goTo("/cards");
   };
 
@@ -40,10 +33,10 @@ const Dashboard: React.FC = () => {
         <SectionCard
           title="My Cards"
           showSeeAll
-          onSeeAllClick={handleSeeAllCards}
           noBackground
+          onSeeAllClick={handleSeeAllClick}
         >
-          <CardsList showAll={false} cards={cards} />
+          <CardsList showAll={false} />
         </SectionCard>
       </CardsSection>
 
