@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { Transaction, fetchRecentTransactions } from '../../features/recentTransactions/api/fakeApi';
+import { toast } from 'react-toastify';
 
 interface TransactionsState {
   transactions: Transaction[];
@@ -19,8 +20,8 @@ export const fetchTransactionsThunk = createAsyncThunk<Transaction[]>(
     try {
       const response = await fetchRecentTransactions();
       return response;
-    } catch (error) {
-      return rejectWithValue(error);
+    } catch {
+      return rejectWithValue(toast.error('Failed to fetch transactions'));
     }
   }
 );
